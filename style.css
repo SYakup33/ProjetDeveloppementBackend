@@ -1,0 +1,43 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block; /*Enlever l espace entre l image et le texte*/
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.header {
+  display: flex;
+  margin-left: 1em;
+}
+
+.logo {
+  width: 2em;
+  height: 2em;
+}
+
+.titre {
+  margin-left: 400px;
+}
+
+.navbar {
+  margin-right: auto;
+}
