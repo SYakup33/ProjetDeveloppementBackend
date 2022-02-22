@@ -23,7 +23,7 @@
  <body>
     <header class="header">
     <div class="header_logo"></div>
-        <img src="/images/logo.png" alt="le logo du site" class="logo"/>
+        <img src="images/logo.png" alt="le logo du site" class="logo"/>
     </div>
     <div class="titre">
         <h1>Les participants</h1>
@@ -32,10 +32,10 @@
     </header>
 
     <nav class="navbar">
-      <a href="index.html">Accueil</a>
-      <a href="participant.html">Participants</a>
-      <a href="modules.html">Modules</a>
-      <a href="exports.html">Exports</a>
+      <a href="index.php">Accueil</a>
+      <a href="participant.php">Participants</a>
+      <a href="modules.php">Modules</a>
+      <a href="exports.php">Exports</a>
     </nav>
     
     <table class="table">
@@ -53,21 +53,21 @@
           <th scope="row">Clavette</th>
           <td>Marie</td>
           <td>marie@clavette.com</td>
-          <td><a href="frm_modules.html"><i class="fa-solid fa-pen-to-square"></i></a></td>
+          <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
           <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
         </tr>
         <tr>
           <th scope="row">Huppe</th>
           <td>Ganelon</td>
           <td>ganelon@hupper.com</td>
-          <td><a href="frm_modules.html"><i class="fa-solid fa-pen-to-square"></i></a></td>
+          <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
           <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
         </tr>
         <tr>
           <th scope="row">Petrie</th>
           <td>Gaetane</td>
           <td>gaetane@tetrie.com</td>
-          <td><a href="frm_modules.html"><i class="fa-solid fa-pen-to-square"></i></a></td>
+          <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
           <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
         </tr>
       </tbody>

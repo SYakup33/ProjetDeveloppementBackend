@@ -5,30 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
     <link rel="stylesheet" href="style.css" />
     <title>Accueil</title>
   </head>
   <body>
     <header class="header">
     <div class="header_logo"></div>
-        <img src="/images/logo.png" alt="le logo du site" class="logo"/>
+        <img src="images/logo.png" alt="le logo du site" class="logo"/>
     </div>
     <div class="titre">
         <h1>Bienvenue sur mon site</h1>
     </div>
       
     </header>
-
+<?php
+print("toto")
+?>
     <nav class="navbar">
-      <a href="index.html">Accueil</a>
-      <a href="participant.html">Participants</a>
-      <a href="modules.html">Modules</a>
-      <a href="exports.html">Exports</a>
+      <a href="index.php">Accueil</a>
+      <a href="participant.php">Participants</a>
+      <a href="modules.php">Modules</a>
+      <a href="exports.php">Exports</a>
     </nav>
 
     <main>
         <div class="logo-participants">
-            <img src="/images/participant.jpg" alt="logo-participants" class="img-participant">
+            <img src="images/participant.jpg" alt="logo-participants" class="img-participant">
         </div>
         
       <article>

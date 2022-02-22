@@ -23,7 +23,7 @@
   <body>
     <header class="header">
     <div class="header_logo"></div>
-        <img src="/images/logo.png" alt="le logo du site" class="logo"/>
+        <img src="images/logo.png" alt="le logo du site" class="logo"/>
     </div>
     <div class="titre">
         <h1>Modules</h1>
@@ -32,16 +32,16 @@
     </header>
 
     <nav class="navbar">
-      <a href="index.html">Accueil</a>
-      <a href="participant.html">Participants</a>
-      <a href="modules.html">Modules</a>
-      <a href="exports.html">Exports</a>
+      <a href="index.php">Accueil</a>
+      <a href="participant.php">Participants</a>
+      <a href="modules.php">Modules</a>
+      <a href="exports.php">Exports</a>
     </nav>
 
     <table class="table">
         <thead>
-          <tr>
-            <th scope="col">Code</th>
+          <tr class="table-secondary">
+            <th scope="col" >Code</th>
             <th scope="col">Libellé</th>
             <th colspan="2">Actions</th>
           </tr>
@@ -50,19 +50,19 @@
           <tr>
             <th scope="row">COD001</th>
             <td>Module1</td>
-            <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
           </tr>
           <tr>
             <th scope="row">COD002</th>
             <td>Module2</td>
-            <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
           </tr>
           <tr>
             <th scope="row">COD003</th>
             <td>Module3</td>
-            <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
           </tr>
         </tbody>

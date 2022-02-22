@@ -23,7 +23,7 @@
   <body>
     <header class="header">
         <div class="header_logo"></div>
-            <img src="/images/logo.png" alt="le logo du site" class="logo"/>
+            <img src="images/logo.png" alt="le logo du site" class="logo"/>
         </div>
         <div class="titre">
             <h1>Formulaire module</h1>
@@ -31,14 +31,15 @@
         </header>
 
         <nav class="navbar">
-          <a href="index.html">Accueil</a>
-          <a href="participant.html">Participants</a>
-          <a href="modules.html">Modules</a>
-          <a href="exports.html">Exports</a>
+          <a href="index.php">Accueil</a>
+          <a href="participant.php">Participants</a>
+          <a href="modules.php">Modules</a>
+          <a href="exports.php">Exports</a>
         </nav>
 
         <form>
             <h1>Fiche module</h1>
+            <div class="formule">
             <div class="form-group">
               <label for="code">Code</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Saisir le code">
@@ -48,12 +49,16 @@
               <label for="libelle">Libelle</label>
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Saisir le libellé">
             </div>
+          </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Desciption</label>
+                <label for="exampleFormControlTextarea1" class="description">Desciption</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Saisir la description du module"></textarea>
-              </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-            <button type="submit" class="btn btn-primary">Annuler</button>
+            </div>
+            <div class="boutton">
+              <button type="submit" class="btn btn-success">Valider</button>
+              <button type="submit" class="btn btn-danger">Annuler</button>
+          </div>
+
           </form>
           <footer>
             <div class="footer-copyright">
