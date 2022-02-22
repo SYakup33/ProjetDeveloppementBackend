@@ -3,7 +3,7 @@
 function getHeader ($titre = 'Bienvenue sur mon site') {
     return ('<header class="header">
     <div class="header_logo"></div>
-        <img src="includes/images/logo.png" alt="le logo du site" class="logo"/>
+        <a href = "index.php"><img src="includes/images/logo.png" alt="le logo du site" class="logo"/></a>
     </div>
     <div class="titre">
         <h1>'.$titre.'</h1>

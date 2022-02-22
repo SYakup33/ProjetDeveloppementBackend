@@ -60,7 +60,7 @@ $SQLResult -> closeCursor();
           <tr class="table-secondary">
             <th scope="col" >id</th>
             <th scope="col">Code</th>
-            <th scope="col">Libele</th>
+            <th scope="col">Libelle</th>
             <th scope="col">Desciption</th>
             <th colspan="4">Actions</th>
           </tr>
@@ -87,9 +87,9 @@ $SQLResult -> closeCursor();
     $ligne = '<tr>
     <th scope="row">'.$tab[$i]['id'].'</th>
     <td>'.$tab[$i]['code'].'</td>
-    <td>'.$tab[$i]['libele'].'</td>
+    <td>'.$tab[$i]['libelle'].'</td>
     <td>'.$tab[$i]['description'].'</td>
-    <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    <td><a href="frm_modules.php?id='.$tab[$i]['id'].'"><i class="fa-solid fa-pen-to-square"></i></a></td>
     <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
     </tr>';
     print($ligne);

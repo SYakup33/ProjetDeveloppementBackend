@@ -26,43 +26,51 @@ include_once("includes/scripts/fonctions.php");
     <title>Participants</title>
   </head>
  <body>
+
  <?php
+ // Récupérer les données de la base de données
+ $dbConn = new PDO("mysql:host=localhost;port=3306;dbname=evaluation;charset=utf8","root","");
+ $SQLQuery = "SELECT * FROM participant";
+ $SQLResult = $dbConn->query($SQLQuery);
+ $tab = ($SQLResult->FetchAll(PDO::FETCH_ASSOC));
+ $SQLResult -> closeCursor();
+?>
+<?php
   print(getHeader("Les participants"));
   print(getNavbar());
 ?>
     
     <table class="table">
       <thead>
-        <tr>
+        <tr class="table-secondary">
           <th scope="col">Nom</th>
           <th scope="col">Prenom</th>
-          <th scope="col">Email</th>
+          <th scope="col">Date de naissance</th>
+          <th scope="col">Adresse 1</th>
+          <th scope="col">Adresse 2</th>
           <th colspan="2"></th>
-
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Clavette</th>
-          <td>Marie</td>
-          <td>marie@clavette.com</td>
-          <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
-          <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row">Huppe</th>
-          <td>Ganelon</td>
-          <td>ganelon@hupper.com</td>
-          <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
-          <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
-        </tr>
-        <tr>
-          <th scope="row">Petrie</th>
-          <td>Gaetane</td>
-          <td>gaetane@tetrie.com</td>
-          <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
-          <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
-        </tr>
+
+<?php
+// Remplir le tableau participant, avec les données de la bd
+  $nb = count($tab);
+  for ($i=0;$i<$nb;$i++) {
+    $ligne = ' <tr>
+    <th scope="row">'.$tab[$i]['nom'].'</th>
+    <td>'.$tab[$i]['prenom'].'</td>
+    <td>'.$tab[$i]['date_naissance'].'</td>
+    <td>'.$tab[$i]['adresse1'].'</td>
+    <td>'.$tab[$i]['adresse2'].'</td>
+    <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
+  </tr>
+  ';
+  print($ligne);
+}
+?>
+
       </tbody>
     </table>
 <?php

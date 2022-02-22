@@ -29,6 +29,10 @@ include_once("includes/scripts/fonctions.php");
   <?php
   print(getHeader("Le formulaire module"));
   print(getNavbar());
+
+  print('<pre>');
+  print_r($_GET);
+  print('</pre>');
 ?>
 
         <form>
