@@ -1,3 +1,8 @@
+<?php
+// afficher les erreurs
+ini_set("display_errors","on");
+include_once("includes/scripts/fonctions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,83 +26,81 @@
     <title>Modules</title>
   </head>
   <body>
-    <header class="header">
-    <div class="header_logo"></div>
-        <img src="images/logo.png" alt="le logo du site" class="logo"/>
-    </div>
-    <div class="titre">
-        <h1>Modules</h1>
-    </div>
-      
-    </header>
+<?php
+// 1 Connexion au serveur + sélection de la BDD
+$dbConn = new PDO("mysql:host=localhost;port=3306;dbname=evaluation;charset=utf8","root","");
 
-    <nav class="navbar">
-      <a href="index.php">Accueil</a>
-      <a href="participant.php">Participants</a>
-      <a href="modules.php">Modules</a>
-      <a href="exports.php">Exports</a>
-    </nav>
+// 2 Execution de la requête
+$SQLQuery = "SELECT * FROM module";
+$SQLResult = $dbConn->query($SQLQuery);
+
+// 3 Exploitation des résultats
+
+// print_r($SQLResult->FetchAll());
+
+  // Tableau associatif, avec les noms des champs dans la base de données
+  // print_r($SQLResult->Fetch(PDO::FETCH_ASSOC));
+
+  // Tbaleau numérique, avec des nombres 1 2 3 ...
+  // print_r($SQLResult->fetch(PDO::FETCH_NUM));
+
+  // Belle affichage
+  // print('<pre>');
+  // print_r($SQLResult->FetchAll(PDO::FETCH_ASSOC));
+  $tab = ($SQLResult->FetchAll(PDO::FETCH_ASSOC));
+  // print('</pre>');
+$SQLResult -> closeCursor();
+
+  print(getHeader("Les modules"));
+  print(getNavbar());
+?>
 
     <table class="table">
         <thead>
           <tr class="table-secondary">
-            <th scope="col" >Code</th>
-            <th scope="col">Libellé</th>
-            <th colspan="2">Actions</th>
+            <th scope="col" >id</th>
+            <th scope="col">Code</th>
+            <th scope="col">Libele</th>
+            <th scope="col">Desciption</th>
+            <th colspan="4">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">COD001</th>
-            <td>Module1</td>
-            <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
-          </tr>
-          <tr>
-            <th scope="row">COD002</th>
-            <td>Module2</td>
-            <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
-          </tr>
-          <tr>
-            <th scope="row">COD003</th>
-            <td>Module3</td>
-            <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
-          </tr>
+
+<?php
+  // Déclaration d'un tableau PHP contenant des informations à afficher ensuite
+  // $tab = array( 
+  //   array('SQL01', 'Apprendre le DML'),
+  //   array('SQL02', 'Apprendre le DLL'),
+  //   array('SQL03', 'Apprendre le SQL')
+
+  // );
+  // C'est la même chose
+  // $tab[0] = array('SQL01', 'Apprendre le DML');
+  // $tab[1] = array('SQL02', 'Apprendre le DLL');
+  // $tab[2] = array('SQL03', 'Apprendre le SQL');
+
+
+ 
+  $nb = count($tab);
+  for ($i=0;$i<$nb;$i++){
+    $ligne = '<tr>
+    <th scope="row">'.$tab[$i]['id'].'</th>
+    <td>'.$tab[$i]['code'].'</td>
+    <td>'.$tab[$i]['libele'].'</td>
+    <td>'.$tab[$i]['description'].'</td>
+    <td><a href="frm_modules.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
+    </tr>';
+    print($ligne);
+  }
+
+?> 
+         
         </tbody>
       </table>
-      <footer>
-        <div class="footer-copyright">
-            <h5>Nos réseaux sociaux</h5>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></img></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-        </div>
-        <div class="footer-services">
-            <h5>Nos Services</h5>
-            <ul>
-                <li><a href="#">Web design</a></li>
-                <li><a href="#">Developpement</a></li>
-                <li><a href="#">Hébergement</a></li>
-            </ul>
-        </div>
-        <div class="footer-about">
-            <h5>À propos</h5>
-            <ul>
-                <li><a href="#">Entreprise</a></li>
-                <li><a href="#">Équipe</a></li>
-                <li><a href="#">Legacy</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h5>Contacts</h5>
-            <p>8 Rue Pierre Georges Latécoère, 33700 Mérignac</p>
-        </div>
-        
-    </footer>
-    <p>Copyright @2022 | Designed With by ME</p>
+<?php
+  print(getFooter());
+?>
 </body>
 </html>

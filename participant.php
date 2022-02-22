@@ -1,3 +1,8 @@
+<?php
+// afficher les erreurs
+ini_set("display_errors","on");
+include_once("includes/scripts/fonctions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,22 +26,10 @@
     <title>Participants</title>
   </head>
  <body>
-    <header class="header">
-    <div class="header_logo"></div>
-        <img src="images/logo.png" alt="le logo du site" class="logo"/>
-    </div>
-    <div class="titre">
-        <h1>Les participants</h1>
-    </div>
-      
-    </header>
-
-    <nav class="navbar">
-      <a href="index.php">Accueil</a>
-      <a href="participant.php">Participants</a>
-      <a href="modules.php">Modules</a>
-      <a href="exports.php">Exports</a>
-    </nav>
+ <?php
+  print(getHeader("Les participants"));
+  print(getNavbar());
+?>
     
     <table class="table">
       <thead>
@@ -72,37 +65,8 @@
         </tr>
       </tbody>
     </table>
-    <footer>
-        <div class="footer-copyright">
-            <h5>Nos réseaux sociaux</h5>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></img></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-        </div>
-        <div class="footer-services">
-            <h5>Nos Services</h5>
-            <ul>
-                <li><a href="#">Web design</a></li>
-                <li><a href="#">Developpement</a></li>
-                <li><a href="#">Hébergement</a></li>
-            </ul>
-        </div>
-        <div class="footer-about">
-            <h5>À propos</h5>
-            <ul>
-                <li><a href="#">Entreprise</a></li>
-                <li><a href="#">Équipe</a></li>
-                <li><a href="#">Legacy</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h5>Contacts</h5>
-            <p>8 Rue Pierre Georges Latécoère, 33700 Mérignac</p>
-        </div>
-        
-    </footer>
-    <p>Copyright @2022 | Designed With by ME</p>
+<?php
+  print(getFooter());
+?>
   </body>
 </html>
