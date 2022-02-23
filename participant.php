@@ -56,6 +56,8 @@ include_once("includes/scripts/fonctions.php");
 <?php
 // Remplir le tableau participant, avec les données de la bd
   $nb = count($tab);
+  $date = date_create_from_format('Y-m-d', '2021-05-12')->format('d/m/Y');
+  print($date);
   for ($i=0;$i<$nb;$i++) {
     $ligne = ' <tr>
     <th scope="row">'.$tab[$i]['nom'].'</th>
