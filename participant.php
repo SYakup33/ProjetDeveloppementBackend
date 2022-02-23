@@ -30,7 +30,10 @@ include_once("includes/scripts/fonctions.php");
  <?php
  // Récupérer les données de la base de données
  $dbConn = new PDO("mysql:host=localhost;port=3306;dbname=evaluation;charset=utf8","root","");
- $SQLQuery = "SELECT * FROM participant";
+ $SQLQuery = "SELECT  civilite.libelle_court, nom, prenom, email.adresse, date_naissance, adresse1
+              FROM participant 
+              INNER JOIN civilite ON civilite.id = participant.idcivilite
+              LEFT OUTER JOIN  email ON email.idparticipant = participant.id ";
  $SQLResult = $dbConn->query($SQLQuery);
  $tab = ($SQLResult->FetchAll(PDO::FETCH_ASSOC));
  $SQLResult -> closeCursor();
@@ -43,12 +46,13 @@ include_once("includes/scripts/fonctions.php");
     <table class="table">
       <thead>
         <tr class="table-secondary">
+          <th scope="col">Civilité</th>
           <th scope="col">Nom</th>
           <th scope="col">Prenom</th>
+          <th scope="col">Email</th>
           <th scope="col">Date de naissance</th>
-          <th scope="col">Adresse 1</th>
-          <th scope="col">Adresse 2</th>
-          <th colspan="2"></th>
+          <th scope="col">Adresse</th>
+          <th colspan="2">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -56,15 +60,15 @@ include_once("includes/scripts/fonctions.php");
 <?php
 // Remplir le tableau participant, avec les données de la bd
   $nb = count($tab);
-  $date = date_create_from_format('Y-m-d', '2021-05-12')->format('d/m/Y');
-  print($date);
   for ($i=0;$i<$nb;$i++) {
+    $date = date_create_from_format('Y-m-d', $tab[$i]['date_naissance'])->format('d.m.Y');
     $ligne = ' <tr>
-    <th scope="row">'.$tab[$i]['nom'].'</th>
+    <th scope="row">'.$tab[$i]['libelle_court'].'</th>
+    <td >'.$tab[$i]['nom'].'</td>
     <td>'.$tab[$i]['prenom'].'</td>
-    <td>'.$tab[$i]['date_naissance'].'</td>
+    <td>'.$tab[$i]['adresse'].'</td>
+    <td>'.$date.'</td>
     <td>'.$tab[$i]['adresse1'].'</td>
-    <td>'.$tab[$i]['adresse2'].'</td>
     <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
     <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
   </tr>
