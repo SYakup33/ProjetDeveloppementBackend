@@ -28,7 +28,7 @@ include_once("includes/scripts/fonctions.php");
   <body>
 <?php
 // 1 Connexion au serveur + sélection de la BDD
-$dbConn = new PDO("mysql:host=localhost;port=3306;dbname=evaluation;charset=utf8","root","");
+$dbConn = getBDDConn();
 
 // 2 Execution de la requête
 $SQLQuery = "SELECT * FROM module";
@@ -54,6 +54,7 @@ $SQLResult -> closeCursor();
   print(getHeader("Les modules"));
   print(getNavbar());
 ?>
+<a href="frm_modules.php" class="newModule btn btn-success" >Nouveau module</a>
 
     <table class="table">
         <thead>

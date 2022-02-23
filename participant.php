@@ -29,7 +29,7 @@ include_once("includes/scripts/fonctions.php");
 
  <?php
  // Récupérer les données de la base de données
- $dbConn = new PDO("mysql:host=localhost;port=3306;dbname=evaluation;charset=utf8","root","");
+ $dbConn = getBDDConn();
  $SQLQuery = "SELECT  civilite.libelle_court, nom, prenom, email.adresse, date_naissance, adresse1
               FROM participant 
               INNER JOIN civilite ON civilite.id = participant.idcivilite
