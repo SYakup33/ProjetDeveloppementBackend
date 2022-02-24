@@ -69,7 +69,7 @@ include_once("includes/scripts/fonctions.php");
     <td>'.$tab[$i]['adresse'].'</td>
     <td>'.$date.'</td>
     <td>'.$tab[$i]['adresse1'].'</td>
-    <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    <td><a href="frm_participant.php"><i class="fa-solid fa-pen-to-square"></i></a></td>
     <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
   </tr>
   ';

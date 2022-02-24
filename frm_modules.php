@@ -23,7 +23,7 @@ include_once("includes/scripts/fonctions.php");
     crossorigin="anonymous"
   />
     <link rel="stylesheet" href="style.css" />
-    <title>Modules</title>
+    <title>Formulaire modules</title>
   </head>
   <body>
   <?php
@@ -113,27 +113,69 @@ if (isset($_GET['id'])) {
             <div class="formule">
             <div class="form-group">
               <label for="code">Code :</label>
-              <input value="<?php print($code); ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Saisir le code" name = "ttCode">
+              <input value="<?php print($code); ?>" class="form-control" id="exampleInputCode" aria-describedby="emailHelp" placeholder="Saisir le code" name = "ttCode">
               <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
               <label for="libelle">Libelle :</label>
-              <input value="<?php print($libelle); ?>" class="form-control" id="exampleInputPassword1" placeholder="Saisir le libellé" name = "ttLibelle">
+              <input value="<?php print($libelle); ?>" class="form-control" id="exampleInputLibelle" placeholder="Saisir le libellé" name = "ttLibelle">
             </div>
           </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1" class="description">Desciption :</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Saisir la description du module" name = "ttDescription"><?php print(stripslashes($description)); ?></textarea>
+                <label for="exampleFormDesc" class="description">Desciption :</label>
+                <textarea class="form-control" id="exampleFormDesc" rows="3" placeholder="Saisir la description du module" name = "ttDescription"><?php print(stripslashes($description)); ?></textarea>
             </div>
             <div class="boutton">
-              <button type="submit" class="btn btn-success">Valider</button>
-              <button type="submit" class="btn btn-danger">Annuler</button>
+              <button type="submit" class="btn btn-success" id="btValid">Valider</button>
+              <button type="button" class="btn btn-danger" id="btreset">Annuler</button>
           </div>
 
           </form>
 <?php
   print(getFooter());
+
 ?>
+          <script type="application/javascript">
+            /* ----------------------------------Quand j'appuie sur le bouton valider------------------------------- */
+            // Si il y'a des gens vides des messages d'alertes pop
+
+            let btValid = document.getElementById('btValid');
+
+            btValid.addEventListener('click', function(evt){
+            evt.preventDefault(); // Je viens casser l'action par défault
+
+            // Je fait une référence à mon champ HTML, 3 méthodes différentes qui en le même but
+            let champCode = document.getElementById('exampleInputCode');
+            let champLibelle = document.querySelector('#exampleInputLibelle');
+            let champDesc = document.querySelector('textarea');
+            
+            if(champCode.value === ''){
+              alert('Please enter, code');
+              champCode.focus(); // Mettre un focus sur le champ vide
+              champCode.style.borderColor= 'red';
+              return; // si champ vide, sortir de la fonction, le reste du code ne s'exécute pas
+              }
+            
+            if(champLibelle.value === ''){
+              alert('Please enter, libelle');
+              champLibelle.focus();
+              champCode.style.borderColor= 'red';
+              return;
+              }
+
+            // if(champDesc.value === ''){
+            //   alert('Please enter, decription');
+            //   champDesc.focus();
+            //   champCode.style.borderColor= 'red';
+            //   return;
+            //  }
+             document.querySelector('form').submit();
+              console.log(champCode);
+            })
+            
+          </script>
+
+
     </body>
 
 </html>

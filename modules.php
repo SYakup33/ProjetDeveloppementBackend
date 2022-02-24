@@ -27,14 +27,25 @@ include_once("includes/scripts/fonctions.php");
   </head>
   <body>
 <?php
-// 1 Connexion au serveur + sélection de la BDD
+// 1 et 2 Connexion au serveur + sélection de la BDD
 $dbConn = getBDDConn();
 
-// 2 Execution de la requête
+if (isset($_GET['id'])){
+  $SQLQuery = "DELETE FROM attribuer
+  WHERE idmodule = ".$_GET['id'];
+  
+  $dbConn->query($SQLQuery);
+  $SQLQuery = "DELETE FROM module
+  WHERE id = ".$_GET['id'];
+  
+  $dbConn->query($SQLQuery);
+};
+
+// 3 Execution de la requête
 $SQLQuery = "SELECT * FROM module";
 $SQLResult = $dbConn->query($SQLQuery);
 
-// 3 Exploitation des résultats
+// 4 Exploitation des résultats
 
 // print_r($SQLResult->FetchAll());
 
@@ -91,7 +102,7 @@ $SQLResult -> closeCursor();
     <td>'.$tab[$i]['libelle'].'</td>
     <td>'.$tab[$i]['description'].'</td>
     <td><a href="frm_modules.php?id='.$tab[$i]['id'].'"><i class="fa-solid fa-pen-to-square"></i></a></td>
-    <td><a href="#"><i class="fa-solid fa-eraser"></i></a></td>
+    <td><a href="modules.php?id='.$tab[$i]['id'].' "onclick="return confirm(\'Etes-vous sûr ?\');" ><i class="fa-solid fa-eraser"></i></a></td>
     </tr>';
     print($ligne);
   }
