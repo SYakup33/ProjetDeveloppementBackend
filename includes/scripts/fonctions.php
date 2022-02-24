@@ -64,4 +64,15 @@ function getBDDConn(){
     return new PDO("mysql:host=localhost;port=3306;dbname=evaluation;charset=utf8","root","");
 }
 
+function getNewId($nomTable){
+    
+    $dbConn = getBDDConn();
+    $SQLResult = $dbConn->query("SELECT COALESCE(MAX(id),0) + 1 FROM $nomTable");
+    $val = $SQLResult->fetch(PDO::FETCH_NUM)[0];
+    return ($val);
+    // Même chose
+    //  $SQLQuery = "SELECT COALESCE(MAX(id),0) + 1 FROM $nomTable";
+    //  return (getBDDConn()->query($SQLQuery)->fetch(PDO::FETCH_NUM)[0]);
+}
+
     ?>

@@ -46,7 +46,7 @@ include_once("includes/scripts/fonctions.php");
 
 /* ---------------------------------------------Modifier un module---------------------------------*/
 if (isset($_GET['id'])) {
-  // print('Je viens pour modifier !');
+  print('Je viens pour modifier !');
   $id = $_GET['id'];
   
 
@@ -82,22 +82,24 @@ if (isset($_GET['id'])) {
   /* -----------------------------------------------------------------------------------------------------------------*/
      }else{
        /* ---------------------------------------------Ajouter un nouveau module---------------------------------*/
-        //print('Je viens pour ajouter !');
-        if(!empty($_POST)){
+        print('Je viens pour ajouter !');
+        if(!empty($_POST)){ // est ce que j'ai rempli le formulaire, oui
+
           // Je récupère les données du POST
-          $id="SELECT max(id)+1 FROM module";
+          $id=getNewId('module');
+          print("Nouvel Id : $id");
           $code = $_POST['ttCode'];
           $libelle=$_POST['ttLibelle'];
-          print_r($id);
           $description= addslashes($_POST['ttDescription']);
 
           // Je construit la requête INSERT
-          $SQLQuery= "INSERT INTO module
-          VALUES (id='$id',code = '$code',libelle = '$libelle',description = '$description')
-          ";
-          // J'exécute la requête
-          // Je retourne sur la liste
+          $SQLQuery= "INSERT INTO module (id, code, libelle, description)
+          VALUES ($id,'$code','$libelle','$description')";
 
+          // J'exécute la requête et je retourne sur la liste
+          if($dbConn->query($SQLQuery)){
+            header("Location: modules.php");
+          };
         }
       }
       /* -----------------------------------------------------------------------------------------------------------------*/
