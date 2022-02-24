@@ -88,9 +88,9 @@ if (isset($_GET['id'])) {
           // Je récupère les données du POST
           $id=getNewId('module');
           print("Nouvel Id : $id");
-          $code = $_POST['ttCode'];
-          $libelle=$_POST['ttLibelle'];
-          $description= addslashes($_POST['ttDescription']);
+          $code = addslashes(htmlentities($_POST['ttCode']));
+          $libelle=addslashes(htmlentities($_POST['ttLibelle']));
+          $description= addslashes(htmlentities($_POST['ttDescription']));
 
           // Je construit la requête INSERT
           $SQLQuery= "INSERT INTO module (id, code, libelle, description)
